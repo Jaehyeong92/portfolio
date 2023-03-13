@@ -1,10 +1,10 @@
 var mysql = require("mysql");
 var conn_info = {
-	host : "localhost",
-	port : 3306,
-	user : "root",
-	password : "root",
-	database : "_node_db_jh",
+    host : "dbwogud92.cafe24app.com",
+    port : 3306,
+    user : "dbwogud92",
+    password : "Yu12db34",
+    database : "dbwogud92",
     multipleStatements: true
 
 };

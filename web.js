@@ -1,7 +1,7 @@
 // 서버 세팅 
 var express = require("express");
 var app = express();
-var port = 3408;
+var port = 8001;
 var server = app.listen(port, function(){
 	console.log("서버가 가동되었습니다" + port);
 });
@@ -13,12 +13,12 @@ app.set("view engine", "ejs");
 app.engine("ejs", ejs.renderFile);
 
 // img폴더 경로 셋팅
-app.use(express.static('./img'));
-app.use(express.static('./styles'));
-app.use(express.static('./script'));
-app.use(express.static('./views/tetris'));
-app.use(express.static('./views/dragon'));
-app.use(express.static('./views/tea'));
+app.use(express.static(__dirname + '/img'));
+app.use(express.static(__dirname + '/styles'));
+app.use(express.static(__dirname + '/script'));
+app.use(express.static(__dirname + '/views/tetris'));
+app.use(express.static(__dirname + '/views/dragon'));
+app.use(express.static(__dirname + '/views/tea'));
 
 
 var session = require("express-session");
