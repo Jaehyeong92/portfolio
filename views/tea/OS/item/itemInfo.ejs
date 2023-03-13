@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>오설록 상품 디테일</title>
+        <link rel="stylesheet" href="css/detail.css" />
+	<style>
+		
+        @import url(//fonts.googleapis.com/earlyaccess/hanna.css);
+        .dif_td{font-family: 'Hanna', sans-serif;}
+        
+    </style>
+    </head>
+    <body>
+	<%- include('../header.ejs') %>
+
+        <form action="addCart">
+        <div class="item-detail-top">
+            <div class="item-info">
+                <div class="l">
+                    <table>
+                        <tr>
+                            <td class="item-img" colspan="5">
+                                <div class="detail-img">
+                                    <img
+                                        src="<%= item["item_image"] %>"
+                                        alt="상품 이미지"
+                                    />
+                                </div>
+                                <div class="detail-option">
+                                    <div>
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <img
+                                                        src="point.png"
+                                                        alt="뷰티포인트 200P 적립"
+                                                    />
+                                                </td>
+                                                <td>뷰티포인트 200P 적립</td>
+                                                <td>
+                                                    <img
+                                                        src="tealeaf.png"
+                                                        alt="찻잎 200P 적립"
+                                                    />
+                                                </td>
+                                                <td>찻잎 200P 적립</td>
+                                                <td>
+                                                    <img
+                                                        src="shipping.png"
+                                                        alt="3만원 이상 무료배송"
+                                                    />
+                                                </td>
+                                                <td>3만원 이상 무료배송</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <img
+                                                        src="packaging.png"
+                                                        alt="포장 불가"
+                                                    />
+                                                </td>
+                                                <td>포장 불가</td>
+                                                <td>
+                                                    <img
+                                                        src="shopping_bag.png"
+                                                        alt="쇼핑백 동봉"
+                                                    />
+                                                </td>
+                                                <td>쇼핑백 동봉</td>
+                                            </tr>
+                                        </table>
+
+                                        <p></p>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><h2 class="review">리뷰 평점</h2></td>
+                            <td><h2>4.8</h2></td>
+                            <td>
+                                <img src="bg_stars.png" alt="별점" />
+                            </td>
+                            <td>
+                                <p class="review-text">REVIEW 404</p>
+                            </td>
+                            <td>
+                                <img
+                                    src="arr_10x14.png"
+                                    alt="리뷰 보기"
+                                />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="r">
+                    <table>
+						<br><br>
+						<br><br>
+                        <tr>
+                            <td colspan="6"><h1><%= item["item_name"] %></h1></td>
+                        </tr>
+                        <tr>
+                            <td colspan="6" id="info-text">
+                                즐겁고 행복한 티타임을 선사하는 달콤하고 향긋한
+                                <br />
+                                오설록만의 특별한 블렌디드 티 선물 세트
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="ori-price" colspan="6" align="right">
+                                <%= item["item_price"] %>원
+                            </td>
+                        </tr>
+                        <tr>
+                            <div>
+                                <td class="img-box">
+                                    <a href="#">
+                                        <img
+                                            src="ic_url.png"
+                                            alt="url공유"
+                                        />
+                                    </a>
+                                </td>
+                                <td class="img-box">
+                                    <a href="#">
+                                        <img
+                                            src="ic_facebook.png"
+                                            alt="페이스북 공유"
+                                        />
+                                    </a>
+                                </td>
+                                <td class="img-box">
+                                    <a href="#">
+                                        <img
+                                            src="ic_kakao.png"
+                                            alt="카카오톡 공유"
+                                    /></a>
+                                </td>
+                                <td class="img-box">
+                                    <a href="#">
+                                        <img
+                                            src="ic_like.png"
+                                            alt="좋아요"
+                                    /></a>
+                                </td>
+                            </div>
+                            <div class="text">
+                                <td class="dis-price" align="right">
+                                <%
+                                    var discountPrice = item["item_price"] * (100 - item["item_discount"]) / 100;
+						            
+					            %>
+						            <font size="5">
+							            <b><%= discountPrice %>원</b>
+						            </font> 
+						            <br>
+					           
+					            </td>
+                
+                                <td class="dis-perc" align="right"><%= item["item_discount"]%>%</td>
+                            </div>
+                        </tr>
+                    </table>
+                    <hr />
+                    <div class="select-box">
+                        <select>
+                            <option value="" disabled selected>
+                                추가 상품 선택
+                            </option>
+                            <option value="녹차밀크스프레드시트">
+                                녹차 밀크 스프레드 시트 20,000원
+                            </option>
+                            <option value="오땡큐티박스">
+                                오 떙큐 티 박스 22,000원
+                            </option>
+                            <option value="신오브제주">
+                                신 오브 제주 27,000원
+                            </option>
+                            <option value="프리미엄티컬렉션">
+                                프리미엄 티 컬렉션 28,000원
+                            </option>
+                            <option value="메모리인제주20입">
+                                메모리 인 제주 20입 38,000원
+                            </option>
+                            <option value="시크릿티스토리">
+                                시크릿 티 스토리 45,000원
+                            </option>
+                            <option value="마스터블렌드">
+                                마스터 블렌드 53,000원
+                            </option>
+                            <option value="메모리인제주40입">
+                                메모리 인 제주 40입 68,000원
+                            </option>
+                            <option value="프리미엄티컬렉션90입">
+                                프리미엄 티 컬렉션 90입 70,000원
+                            </option>
+                        </select>
+                    </div>
+                    <div class="select-quantity">
+                        <table>
+                            <tr>
+                                <td><p class="text">구매 수량</p></td>
+                                <td>
+                                    <% if(item["item_stock"] > 0) {%>
+						                <input type="number" name="buyCount" min="1" max="100" value="1">
+					                <% } else { %>
+						                <font size="2">상품 준비중입니다.</font>
+					                <% } %>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="selected-merchant">
+                        <table>
+                           
+                            <tr>
+                                <td>
+                                    <select name="" id="packaging">
+                                        <option value="" selected disabled>
+                                            포장가능 (+2000원)
+                                        </option>
+                                        <option value="packaging_y">
+                                            포장함
+                                        </option>
+                                        <option value="packaging_n">
+                                            포장안함
+                                        </option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="total">
+                        <table>
+                            <tr>
+                                <td>
+                                    <img
+                                        src="label_freedelivery.gif"
+                                        alt="무료배송"
+                                    />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding:30px 100px 0px 0px;">
+								<font size="5" color="green">
+									상품금액 합계
+								</font>
+								</td>
+                                <td style="padding:0px 0px 0px 150px;" align="right">
+									<font size="7" bold="3" color="darkgreen"><%= discountPrice %></font><font size="4" bold="3" color="darkgreen">원</font>
+								</td>
+                            </tr>
+                        </table>
+                        <div class="payment-panel">
+                            <table>
+                                <tr>
+                                    <td>
+										<a href="#">
+                                        <img
+                                            src="선물하기.png"
+                                    	/></a>
+                                    </td>
+                                    <td>
+                                        
+                                        <% if(item["item_stock"] > 0) {%>
+                                            <input type="hidden" name="item_name" value="<%= item['item_name'] %>">
+                                            <input type="hidden" name="item_image" value="<%= item['item_image'] %>">
+                                            <input type="hidden" name="buyPrice" value="<%= item['item_price'] %>">
+                                            <input type="hidden" name="item_discount" value="<%= item['item_discount'] %>">
+                                            <button style="border:none"><input  type="image" src="장바구니.png"></button>
+                                        <%}else{ %>
+                                            <input type="text" value="#">
+                                        <%} %>
+                                
+                                    </td>
+                                    <td>
+                                        <a href="#">
+                                        <img
+                                            src="바로구매.png"
+                                    	/></a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    
+    <br><br>
+    <%- include("../footer.ejs") %>
+  </body>
+</html>

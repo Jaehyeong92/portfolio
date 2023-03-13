@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오설록</title>
+
+    <style>
+                    
+        @import url(//fonts.googleapis.com/earlyaccess/hanna.css);
+        .dif_td{font-family: 'Hanna', sans-serif;}
+
+    </style>
+    
+</head>
+<body>
+    <%- include("../header.ejs") %>
+    <div align="center">
+        <div align = "center" width="1200px" height="100px">
+            <img src="배너.jpg">
+        </div>
+        <br><br>
+        <div class = "all" align = "center" style="padding:0px 300px 200px 200px;">
+        <h3 style="padding:0px 1000px 0px 00px;">피라미드</h3>
+        
+        <hr width="1100px">
+        <br><br>
+
+        <div width="50px">
+            <h5><p class="style1"> 총 13개 상품이 있습니다.</h5>
+        </div>
+
+        <table>
+        <% 
+            for(var i=0; i<itemList.length; i++) { 
+                var item = itemList[i];
+
+                if(i % 4 == 0) {
+        %>
+                <tr align="center" height="250px">
+        <%      } %> 
+                    <td width="300px">
+                        <a href="itemInfo?item_num=<%= item['item_num'] %>">
+                            <% if(item["item_stock"] > 0) { %>
+                                <img alt="상품" src="<%= item['item_image'] %>" width="200px" height="300px">
+                            <% } else { %>
+                                <img alt="상품" src="<%= item['item_image'] %>" width="200px" height="300px" style="opacity:30%">
+                            <% } %> 
+                        </a>
+                        <p><font size="3"><b><%= item["item_name"] %></b></font></p>
+                        <% if(item["item_stock"] > 0) { %>
+                            <% 
+                                if(item["item_discount"] > 0) { 
+                                    var discountPrice = item["item_price"] * (100 - item["item_discount"]) / 100;
+                            %>
+                                <p>
+                                    <font size="3" style="text-decoration: line-through;"><%= item["item_price"] %>원</font>
+                                    →
+                                    <font size="3"><b><%= discountPrice %>원</b></font>
+                                </p>
+                            <% } %>
+                        <% } else { %>
+                                <font size="2" color="red"><b>품절</b></font>
+                        <% } %>
+                        <p><img alt="좋아요" src="<%= item["item_info"] %>" width="20px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img alt="댓글" src="<%= item["item_info1"] %>" width="20px"></p>
+                        <br><br>
+                    </td>
+        <%      if(i % 4 == 3) { %> 
+                </tr>
+        <%      } %>
+        <% } %>        
+        </table>
+    </div>
+</div>
+    <%- include("../footer.ejs") %>
+</body>
+</html>

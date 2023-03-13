@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>고객센터</title>
+    <style>
+        a {
+            color: black;
+            text-decoration: none;
+        }
+
+        #back {
+            background-color: rgb(241, 224, 241);
+            width: 70%;
+            margin-bottom: 35px;
+            margin-left: 15%;
+        }
+        #line {
+            background-color: rgb(82, 62, 62);
+            width: 100%;
+        }
+        h3 { text-decoration:underline; }
+
+        #low{margin-right: 70px;
+            padding-right: 50px;        
+        }
+        #line {
+        background-color: rgb(82, 62, 62);
+        width: 100%;
+        }
+        @import url(//fonts.googleapis.com/earlyaccess/hanna.css);
+        .dif_td{font-family: 'Hanna', sans-serif;}
+
+    </style>
+</head>
+<body>
+    <%- include("../header.ejs") %>
+    
+    <% if(count == 0) { %>
+        <h2>작성된 게시글이 없습니다.</h2>
+    <% 
+       } else { 
+
+    %>
+    <div align="center">
+        <table style="width : 80%">
+            <tr>
+                <td align="left">
+                <h1>고객센터</h1>
+                <hr>
+            </td>
+            </tr>
+            <tr height="20" width="30">
+                <td align="center" width="100">
+                    <font size="2" color="black">
+                        <a href="boardList"><b>공지사항</b></a> 
+                    </font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <font size="2" color="black">
+                        <a href="#"><b>이벤트 발표</b></a>
+                    </font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <font size="2" color="black">
+                        <a href="#"><b>전자 공고</b></a>
+                    </font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    
+                    <font size="2" color="black">
+                        <a href="#"><b>고객센터</b></a>
+                    </font>
+    
+                </td>
+            </tr>
+        </table>
+    
+    </div>
+    <div align="center" id="back">
+        <table>
+            <tr height="100">
+                <td width="300" align="center">
+                    <input type="text" id="id" placeholder="텍스트를 입력해주세요" style="width:500px; height:30px">
+                </td>  
+                <td width="50">
+                    <input type="image" src="검색버튼2.png" id="search" style="width:100px">
+                </td>
+            </tr>
+            <hr>
+        </table>
+        <hr>
+    </div>
+    <div>
+        <table align="center">
+            <tr align="center">
+                <td width="102px" height="60.5px">번호</td>
+                <td width="996px" height="60.5px">제목</td>
+                <td>작성자</td>
+                <td style="padding:0px 0px 0px 30px;">조회수</td>
+               
+            </tr>
+            <%for(var i = 0; i <csList.length; i++){
+                var cs = csList[i];    
+            %>
+                <tr>
+                    <td align="center" height="60.5px">
+                        <%= cs['cs_num'] %> 
+                    </td>
+                    <td style="padding:0px 0px 0px 100px;">
+                        <a href="csInfo?cs_num=<%= cs['cs_num'] %>"><%= cs['cs_title'] %></a>
+                    </td>
+                    <td style="padding:0px 0px 0px 10px;">
+                        <font size="2"><%= cs['cs_userId']%></font>
+                    </td>
+                    <td style="padding:0px 0px 0px 50px;">
+                    <font size="2"><%= cs['csReadCount'] %></font>
+                    </td>
+                </tr>
+                <%}%>
+        </table>
+        <br><br>
+
+        <% } %>
+        <table align="center">
+            <tr align="center">
+                <td width="800px">
+                    <button onclick="location.href='csWrite'">글쓰기</button>
+                </td>
+            </tr>
+        </table>
+
+        
+    </div>
+    <div>
+        <table align="center">
+            <tr height="100">
+                <td>
+                <img src="공지_처음.png" height="13" onclick="location.href='cslist'"> &nbsp;
+                <img src="공지_이전.png" height="13" onclick="location.href='cslist'"> &nbsp;
+                
+                <% if(curPageBeginPagingNumber > onepagepaingNumber) { 
+                    var before = Number(curPageBeginPagingNumber) - onepagepaingNumber;
+                %>
+                    <a href="csList?curPageNum=<%= before %>">[이전]</a>
+                <% } %>
+                <%
+                    for(var i=curPageBeginPagingNumber; i<=curPageEndPagingNumber; i++) {
+                        var nextCurPageBeginPagingNumber = Number(curPageEndPagingNumber) - onepagepaingNumber + 1;
+                %>
+                        <a href="csList?curPageNum=<%= i %>"><%= i %>&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                <%
+                    }
+                %>
+
+                <% if(curPageEndPagingNumber < boardPageCount) { 
+                    var next = curPageEndPagingNumber + 1;
+                %>
+                    <a href="csList?curPageNum=<%= next %>">[이후]</a>
+                <% } %>
+
+                <img src="공지_다음.png" height="13" onclick="location.href='cslist'"> &nbsp;
+                <img src="공지_끝.png" height="13" onclick="location.href='cslist'"> &nbsp;
+                </td>
+            </tr>
+        </table>
+    </div>
+    <%- include("../footer.ejs") %>
+</body>
+</html>

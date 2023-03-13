@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>결제창</title>
+</head>
+<body>
+        <%- include("../header.ejs") %>
+            <div style="padding:50px 700px 100px 300px;">
+                <h1 width="700">결제하기</h1>
+                <hr width="900" color="black" size="3" />
+                <h3 width="900">주문고객정보</h3>
+                <br>
+                <table>
+                    <tr height="60">
+                        <th width="100" align="left">이름</th>
+                        <td align="left">
+                            <input type="text" id="id" style="width:700px; height: 40px">
+                        </td>
+                    
+                    </tr>
+                    <tr height="60">
+                        <th width="150" align="left">이메일</th>
+                        <td width="300" align="left" colspan="2">
+                        <input type="password" id="pw" style="width: 700px; height: 40px">
+                        </td>
+                    </tr>
+                    <tr height="60">
+                        <th width="150" align="left">휴대전화</th>
+                        <td width="300" align="left" colspan="2">
+                        <input type="text" placeholder="'-'없이 휴대폰번호 입력" style="width: 700px; height: 40px">
+                        </td>
+                    </tr>
+                    <tr height="60">
+                        <th width="150" align="left">보내는분</th>
+                        <td width="300" align="left" colspan="2">
+                        <input type="text" style="width: 700px; height: 40px">
+                        </td>
+                    </tr>
+                    <style>
+                    
+                        @import url(//fonts.googleapis.com/earlyaccess/hanna.css);
+                        .dif_td{font-family: 'Hanna', sans-serif;}
+            
+                    </style>
+                    <tr>
+                        <th width="150"></th>
+                        <td class="dif_td" align="left" colspan="2" style="background-color: rgb(255, 228, 255); color: rgb(71, 61, 61)">
+                            <font size="2">보내는 분 별도 표기하더라도 고객님 정보보호를 위해 마스킹 처리되어 발송됩니다.<br>
+                            예) 오설록 -> 오*록 / 오설록몰 -> 오설**</font>
+                        </td>
+                    </tr>
+                
+                </table>
+                    <table>
+                    <hr width="900" color="black" size="1" />
+                    <h3 width="900">배송지정보</h3>
+                    <tr height="60">
+                        <th width="150" align="left">받는분</th>
+                        <td width="300" align="left" colspan="2">
+                            <input type="text" style="width: 700px; height: 40px">
+                        </td>			
+                    </tr>
+                    
+                    <tr height="60">
+                        <th width="150" align="left">연락처</th>
+                        <td width="300" align="left" colspan="2">
+                            <input type="text" placeholder="'-'없이 휴대폰번호 입력" style="width: 700px; height: 40px">
+                        </td>
+                        
+                    </tr>
+                    
+                    <tr height="60">
+                        <th width="150" align="left">주소</th>
+                        <td width="300" align="left" colspan="2">
+                            <input type="text" style="width: 500px; height: 40px"><button onclick="location.href='javascript:execDaumPostcode()'">우편번호 찾기</button>
+                        </td>
+                        
+                    </tr>
+                </table>
+                <hr width="900" color="black" size="1" />
+                <table style="background-color: rgb(255, 228, 255); color: rgb(71, 61, 61)">
+                    <tr height="60">
+                        <td class="dif_td" style="background-color: rgb(255, 228, 255); color: rgb(71, 61, 61)">
+                            배송요청사항
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 700px; height: 30px">
+                    <select style="width: 700px; height: 30px">
+                        <option >배송 요청사항 선택</option>
+                        <option >경비실에 맡겨주세요</option>
+                        <option >배송전에 미리 연락주세요</option>
+                        <option >직접입력</option>
+                    </select>
+                </td>
+                </tr>
+            </table>
+            <hr width="900" color="black" size="1" />
+
+            <table>
+            <h3>주문상품</h3>
+            <tr>
+                <td align="left">
+                    <font size="2"> 총 1건 </font>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="러블리_티 _박스.png" width="100">
+                </td>
+                
+            </tr>
+            <style>
+            @import url(//fonts.googleapis.com/earlyaccess/hanna.css);
+            .dif_td{font-family: 'Hanna', sans-serif;}
+            </style>
+                <tr>
+                    <td>
+                        <font size="3">러블리 티 박스</font><br>
+                        <font size="2" style="color:gray">유로포장 선택안함</font><br>
+                        <font size="2" style="color:gray">쇼핑백동봉</font>
+                </td>
+                </tr>
+                <tr>
+                <td align="right" width="800" line-height="1000px" align="right" colspan="8">
+                    <h4>총 상품금액 </h4>
+                </td>
+                <td align="right" width="100" line-height="500px" align="right" colspan="8">
+                    <h4><b>18,000</b><b>원</b></h4>
+                </td>
+                </tr>
+                <tr>
+                <td align="right" width="650" align="right" colspan="8">
+                    <h4>배송비 </h4>
+                </td>
+                <td align="right" width="100" align="right" colspan="8">					
+                    <h4><b>2,500</b><b>원</b></h4>												
+                </td>
+            </tr>
+                
+                <tr>
+                    <td align="right" width="650" align="right" colspan="8" style="color:red">
+                        <h4>최종 결제금액 </h4>
+                    </td>
+                    <td align="right" width="100" align="right" colspan="8" style="color:red">	
+                        <h3><b>20,500</b><b>원</b></h3>											
+                    </td>
+                    
+                </tr>
+                <tr>
+                    <td>
+
+                    </td>
+                    <td align="right" colspan="8">
+                        <button onclick="window.open()" width="200" style="color:blueviolet"><h4>결제하기</h4></button>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="900" color="black" size="1" />
+            <style>
+            table {
+                border-collapse: collapse;
+            }
+            ul.b {  list-style-type: disc; }
+
+            </style>
+            <table border="1" height="20">
+                <h3>결제수단선택</h3>
+                <tr class="dif_td" height="20" align="center">
+                    <td width="150" height="50">
+                        <a href="#">tosspay</a>
+                    </td>
+                    <td width="150" height="50">
+                        <a href="#">신용카드</a>
+                    </td>
+                    <td width="150" height="50">
+                        <a href="#">네이버페이</a>
+                    </td>
+                    <td width="150" height="50">
+                        <a href="#">카카오페이</a>
+                    </td>
+                    <td width="150" height="50">
+                        <a href="#"> PAYCO</a>
+                    </td>
+                </tr>
+                <tr  class="dif_td" align="center" width="150">
+                    <td width="150" height="50">
+                        <a href="#">samsung pay</a>
+                    </td>
+                    <td>
+                        <a href="#">L.pay</a>
+                    </td>
+                    <td>
+                        <a href="#">무통장 입금</a>
+                    </td>
+                    <td>
+                        <a href="#">계좌이체</a>
+                    </td>
+                    <td>
+                        <a href="#">휴대폰결제</a>
+                    </td>
+                </tr>
+            </table>
+            <table>
+                <ul class="b">
+                    <li><font size="2">세금계산서는 고객상담실과 상담 후 발급이 가능합니다. (Tel: 080-805-5555)</font></li>
+                    <li><font size="2">오설록몰에서 주문완료 시 결제내용 및 배송정보 확인을 위해 오설록티하우스에도 고객님의 회원정보가 함께 등록됩니다.</font></li>
+                    <li><font size="2">현금영수증은 결제일 기준, 익일 오전 09시 이후부터 국세청에서 조회할 수 있습니다.</font></li>
+                </ul>
+            </table>
+            <hr width="900" color="black" size="1" />
+
+
+            <table>
+                <h4><input type="checkbox">위 상품의 판매조건을 명확히 확인하였으며, 구매 진행에 동의 합니다.</h4>
+            </table>
+            <style>
+                ul.list {  list-style-type: disc; }
+            </style>
+            <table border="1">
+                <ul class="list">
+                    <li><font size="2">할인쿠폰 적용 후 총 결제 금액(배송비, 쇼핑백 환경부담금 제외)가 3만원 이상인 경우 무료 배송이 적용됩니다. 
+                    (단, 티웨어는 브랜드별로 무료배송기준이 상이하오니, 제품고시정보 내의 배송안내 확인부탁드립니다.)</font></li>
+                    <br>
+                
+                
+                    <li><font size="2">배송 정보(=수취인정보)가 동일할 경우 자동으로 합배송(1개의 송장번호) 될 수 있습니다. 
+                        (반드시 제품 수령 후, 송장번호 기입하시어 1:1 상담 게시판을 통해 배송비 환불 요청해주세요.)<br>
+                
+                        예) 2건의 주문 건 중 무료배송 주문 건과 배송료를 지불한 주문 건이 합배송되었을 경우 1건의 배송료 환불</font></li>
+                        <br>
+                
+                
+                    <li><font size="2">다수의 주문건에 쿠폰 할인을 받는 대신 배송료를 결제하는 경우, 합배송 환불에서 제외 될 수도 있습니다.<br>
+                        예) 2건의 주문 건 모두 배송료를 지불하였을 경우 1건의 배송료만 환불<br>
+                        
+                        * 단, 합배송 개별 신청은 불가능합니다.</li>
+                
+            </table>
+        </div> 
+    <%- include("../footer.ejs") %>
+
+</body>
+</html>

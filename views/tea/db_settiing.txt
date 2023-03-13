@@ -1,0 +1,156 @@
+-- ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'root';
+-- DROP DATABASE _node_db_jh;
+CREATE DATABASE _node_db_jh;
+
+USE _node_db_jh;
+
+
+
+# 회원 테이블
+CREATE TABLE user(
+	user_name VARCHAR(20),
+    user_id VARCHAR(20),
+    user_pw VARCHAR(20),
+    user_bDate VARCHAR(20),
+    user_email VARCHAR(30),
+    user_joinDate VARCHAR(20),
+    user_num INT
+);
+
+
+INSERT INTO user VALUES("민서준",  "minsj",           "seojun!@",           "1994-08-09",           "minsj@naver.com",              "2019-01-02",                   7);
+INSERT INTO user VALUES("이시우",  "swlee",           "siwoo!@",            "1994-02-23",           "swlee@gmail.com",              "2020-12-23",                    8);
+INSERT INTO user VALUES("김하윤",  "hayoon12",        "hayoon!@",          "1995-05-05",           "hayoon12@hotmail.com",          "2020-04-04",               9);
+INSERT INTO user VALUES("이지아",  "jiji0056",        "jia!@!@",          "1995-08-30",           "jiji0056@kakao.com",              "2019-03-27",              10);
+INSERT INTO user VALUES("최지훈",  "jihoonie",        "jihoon!@",          "1996-08-08",           "jihoonie@daum.com",              "2021-08-02",               11);
+INSERT INTO user VALUES("박소율",  "soyul1004",        "soyul!@",          "1997-08-06",           "soyul1004@gmail.com",            "2022-12-02",               12);
+INSERT INTO user VALUES("김지안",  "darks0ul",        "jian!@",            "1997-12-12",           "darks0ul@naver.com",              "2022-06-18",                13);
+INSERT INTO user VALUES("이연우",  "sollomon7979",     "yeonwoo!@",       "1998-01-01",           "sollomon7979@kakao.com",         "2020-10-10",             14);
+INSERT INTO user VALUES("정현준",  "hjmygumi88",        "hyunjoon!@",        "1998-12-13",           "jhmygumi@gmail.com",            "2021-08-09",             15);
+INSERT INTO user VALUES("신예원",  "ywywshin",        "yewon!@",          "1999-04-04",           "ywywshin@daum.com",              "2022-07-23",                16);
+INSERT INTO user VALUES("송유찬",  "yuchanizm0812",     "yuchan!@",      "2000-10-10",           "yuchanizm0812@nate.com",    "2023-01-01",              17);
+INSERT INTO user VALUES("박가은",  "2482gaeun",        "gaeun!@",          "2001-11-03",           "2482gaeun@naver.com",              "2019-08-12",             18);
+INSERT INTO user VALUES("황하린",  "harinhi",        "harin!@",          "2002-08-09",           "harinhi@gmail.com",              "2020-12-23",                19);
+INSERT INTO user VALUES("엄민재",  "ummin57",        "minjae!@",          "2003-12-24",           "ummin57@gmail.com",              "2022-05-04",               20);
+INSERT INTO user VALUES("홍길동",  "honggildong66",   "gildong!@",       "2004-12-01",           "honggildong66@kakao.com",    "2023-01-12",                1);
+INSERT INTO user VALUES("김현숙",  "hyunsukee",        "hyunsook!@",          "2003-10-30",      "hyunsukee@naver.com",          "2022-12-13",              2);
+INSERT INTO user VALUES("김지우",  "jiwoo22",        "jiwoo!@",          "2003-12-17",           "jiwoo22@daum.com",               "2022-06-21",                 3);
+INSERT INTO user VALUES("박민준",  "minjunsama",      "minjun!@",          "2004-09-23",           "minjunsama@kakao.com",           "2019-03-17",             4);
+INSERT INTO user VALUES("진도준",  "dodobird",        "dojun!@",          "2005-07-07",           "dodobird@kakao.com",              "2019-08-10",               5);
+INSERT INTO user VALUES("모현민",  "galleryboss",     "hyunmin!@",          "1994-08-12",           "galleryboss@hotmail.com",    "2020-04-25",               6);
+SELECT MAX(user_num) FROM user;
+SELECT * FROM user;
+SELECT COUNT(*) FROM user WHERE user_id="minsj" AND user_pw="seojun!@";
+
+# 상품 테이블
+CREATE TABLE item(
+	item_num INT,
+    item_name VARCHAR(20),
+    item_category VARCHAR(20),
+    item_price INT,
+    item_sell INT,
+    item_date VARCHAR(20),
+    item_stock INT,
+    item_discount INT,
+    item_info VARCHAR(50),
+    item_info1 VARCHAR(50),
+    item_image VARCHAR(50)
+);
+
+INSERT INTO item VALUES(1,   "러블리 티 박스" ,          "piramid" ,      20000 ,   1572,     "2019.12.04",    31,    20,     "ico_like.gif",   "ico_comment.gif",    "러블리_티 _박스.png");
+INSERT INTO item VALUES(2,   "프리미엄 티 컬렉션" ,      "teabag" ,       28000,    1493,     "2020.01.02",    42,    20,     "ico_like.gif",    "ico_comment.gif",    "프리미엄 티 컬렉션.png");
+INSERT INTO item VALUES(3,   "시크릿 티 스토리" ,        "piramid" ,      45000,    1398,     "2020.05.03",    21,    0,      "ico_like.gif",    "ico_comment.gif",    "시크릿 티 스토리.png");
+INSERT INTO item VALUES(4,   "마스터 블렌드",            "piramid" ,      53000,    1379,     "2020.07.12",    17,    30,     "ico_like.gif",   "ico_comment.gif",     "마스터 블렌드.png");
+INSERT INTO item VALUES(5,   "메모리 인 제주 20입",      "piramid" ,      38000,    1356,     "2020.09.21",    36,    25,    "ico_like.gif",     "ico_comment.gif",    "메모리 인 제주 20.png");
+INSERT INTO item VALUES(6,   "신 오브 제주",             "piramid" ,      27000,    1277,     "2020.11.12",    53,    15,    "ico_like.gif",     "ico_comment.gif",    "신 오브 제주.png");
+INSERT INTO item VALUES(7,   "오 땡큐 티 박스",          "teabag" ,       22000,    1211,     "2020.12.01",    0,     0,     "ico_like.gif",     "ico_comment.gif",     "오 땡큐 티 박스.png");
+INSERT INTO item VALUES(8,   "프리미엄 티 컬렉션 90입",   "teabag" ,      70000,    1168,     "2021.02.03",     2,     30,    "ico_like.gif",     "ico_comment.gif",    "프리미엄 티 컬렉션 90.png");
+INSERT INTO item VALUES(9,   "베스트 블렌디드 티백 박스", "teabag" ,       29500,    1062,     "2021.03.08",    6,     0,     "ico_like.gif",     "ico_comment.gif",     "베스트 블랜디드 티백 박스.png");
+INSERT INTO item VALUES(10,  "스페셜 티 에디션",         "piramid" ,      95000,    954,      "2021.05.17",    8,      0,     "ico_like.gif",     "ico_comment.gif",    "스페셜 티 에디션.png");
+INSERT INTO item VALUES(11,  "허브티 컬렉션",            "piramid" ,      25000,    848,      "2021.07.24",    1,     0,      "ico_like.gif",     "ico_comment.gif",    "허브티 컬렉션.png");
+INSERT INTO item VALUES(12,  "시그니처 기프트 세트",      "piramid" ,     22500,     842,      "2021.09.13",    64,    0,     "ico_like.gif",      "ico_comment.gif",   "시그니처 기프트 세트.png");
+INSERT INTO item VALUES(13,  "과일 블렌디드 티백 박스",   "teabag" ,      29500,     738,      "2021.11.16",    23,    10,    "ico_like.gif",      "ico_comment.gif",    "과일 블렌디드 티백 박스.png");
+INSERT INTO item VALUES(14,  "베스트 티 컬렉션 9종",      "piramid" ,     62000,     612,      "2022.02.23",    17,    0,     "ico_like.gif",     "ico_comment.gif",    "베스트 티 컬렉션 9종.png");
+INSERT INTO item VALUES(15,  "상큼 블렌디드 티백 박스",   "teabag" ,      29500,     542,      "2022.03.17",    5,     13,    "ico_like.gif",      "ico_comment.gif",   "상큼 블렌디드 티백 박스.png");
+INSERT INTO item VALUES(16,  "베스트 티 컬렉션 3종",      "piramid" ,     25000,    508,       "2022.05.21",    0,     0,     "ico_like.gif",     "ico_comment.gif",    "베스트 티 컬렉션 3종.png");
+INSERT INTO item VALUES(17,  "메모리 인 제주 40입",       "piramid" ,     68000,    441,       "2022.06.14",    31,    10,    "ico_like.gif",      "ico_comment.gif",  "메모리 인 제주 40입.png");
+INSERT INTO item VALUES(18,  "오설록 바람노래 3입",        "piramid" ,    8000,     339,       "2022.08.11",    12,    15,    "ico_like.gif",      "ico_comment.gif",  "오설록 바람노래 3입.png");
+INSERT INTO item VALUES(19,  "달달 블렌디드 티백 박스",   "teabag" ,      29500,    242,       "2022.10.06",     9,     7,     "ico_like.gif",      "ico_comment.gif",  "달달 블렌디드 티백 박스.png");
+INSERT INTO item VALUES(20,  "오설록 비의 사색 3입",      "piramid" ,     8000,     137,       "2022.12.23",     0,     0,     "ico_like.gif",     "ico_comment.gif",   "오설록 비의 사색 3입.png");
+
+SELECT * FROM item;
+SELECT * FROM item ORDER BY item_sell DESC;
+SELECT * FROM item WHERE item_num = 11;
+SELECT * FROM item ORDER BY item_num ASC;
+SELECT * FROM item ORDER BY item_sell DESC LIMIT 0, 20;
+SELECT * FROM item WHERE item_category = 'teabag' ORDER BY item_num ASC;
+SELECT * FROM item WHERE item_category = 'piramid' ORDER BY item_num ASC;
+SELECT * FROM item WHERE item_name LIKE '%티%';
+
+# 게시판 테이블
+CREATE TABLE board(
+	board_num INT,
+    board_date VARCHAR(20),
+    board_title VARCHAR(50),
+    board_category VARCHAR(100),
+    board_content VARCHAR(500),
+    board_hit INT
+  
+);
+
+INSERT INTO board VALUES(1,   "2023-01-03",  "[공지] 폭설로 인한 베이커리류 택배 배송불가 지역 안내",                    "notice",               "안녕하세요. 오설록몰입니다.\n 항상 오설록몰을 이용해주시는 고객님께 진심으로 감사드립니다.\n 현재 폭설로 인해 일부 지역에서\n 베이커리/아이스크림 제품이 주문 불가하여 안내 드립니다.\n[배송 불가 지역]\n 전라도 곡성군 삼기면, 석곡면, 목사동면, 죽곡면\n 전라도 보성군 회천면, 복내면, 문덕면\n 전라도 장흥군 유치면\n 해당 지역에서 거주하시는 고객님들께서는\n 주문이 자동으로 취소될 수 있어 양해 부탁드립니다.\n 오설록몰 이용에 불편을 드려 죄송합니다.",     59);
+INSERT INTO board VALUES(2,   "2022-12-26",  "[점검] 오설록몰 서비스 점검안내_23년 1월 7일(토)",                        "check",               "안녕하세요\n차 한잔의 삶을 전하는 오설록입니다.\n항상 오설록을 사랑해주시는 고객 여러분께 감사드립니다.\n 더 나은 이용 환경을 제공하기 위한 시스템 점검을 진행합니다.\n 아래 기간 동안 온라인몰 접속이 제한되오니, 고객 여러분의 너른 양해 부탁드립니다.\n *작업일시 : 23.01.07(토) 00:30AM ~ 08:30AM (약 8시간 예정)\n *점검범위 : 로그인/가입/탈퇴, 뷰티포인트 조희/차감/적립 등 통합고객 서비스 전반\n 항상 더 나은 가치와 서비스를 제공하는 오설록몰이 되겠습니다.\n 감사합니다.",     78);
+INSERT INTO board VALUES(3,   "2022-12-26",  "[점검] 오설록몰 서비스 점검안내_11월 8일(화)",                            "check",               "안녕하세요.\n 차 한잔의 쉼을 전하는 오설록입니다.\n 항상 오설록을 사랑해주시는 고객 여러분께 감사드립니다.\n 더 나은 이용 환경을 제공하기 위한 시스템 점검을 진행합니다.\n 아래 기간 동안 온라인몰 일부 이용환경이 제한되오니, 고객 여러분의 너른 양해 부탁드립니다.\n *작업일시 : 22.11.08(화) 02:00 AM ~ 06:00 AM (약 4시간 예정)\n *점검범위 : 로그인/가입/탈퇴, 뷰티포인트 조희/차감/적립 등 통합고객 서비스 전반\n 항상 더 나은 가치와 서비스를 제공하는 오설록몰이 되겠습니다.\n 감사합니다.",     88);
+INSERT INTO board VALUES(4,   "2022-09-02",  "[공지] 4월 다다일상 베이직/홈카페 배송 지연 안내",                         "notice",               "안녕하세요. 오설록입니다\n 항상 오설록을 사랑해 주시는 고객님들께 먼저 죄송한 말씀드립니다.\n 현재 코로나로 인한 생산 지연과 인원 부족, 그리고 다다일상 주문 건수 증가로 인하여\n 금월 다다일상 베이직/홈카페의 가장 주요한 구성품인 '벚꽃향 가득한 올레 10입'의 재고 부족으로 다다일상 배송이 지연되고 있습니다.\n 재고는 4/20 이후 입고 예정이며 입고되는 대로 빠르게 고객님들께 배송될 수 있도록 하겠습니다.\n 고객님들께 불편을 드리게 된 점 책임을 깊게 통감 중에 있습니다.\n 동일한 문제 발생하지 않도록 더욱 노력하겠으며, 더 좋은 서비스로 보답드릴 수 있도록 최선을 다 하겠습니다.\n 앞으로도 오설록에 대한 많은 관심과 사랑 부탁드립니다.\n 감사합니다.\n 오설록 드림",     120);
+INSERT INTO board VALUES(5,   "2021-12-28",  "[공지] 울릉도/강릉 지역 폭설로 인한 베이커리류 택배 배송불가 안내",         "notice",               "안녕하세요. 오설록몰입니다.\n 항상 오설록몰을 이용해주시는 고객님께 진심으로 감사드립니다.\n 현재 폭설로 인해 울릉도와 강릉 지역의 베이커리류 배송이 불가합니다.\n 이 점 구매에 참고 부탁 드립니다.\n 항상 더 나은 가치와 서비스를 제공하는 오설록 온라인몰이 되겠습니다.\n 감사합니다.",     84);
+INSERT INTO board VALUES(6,   "2021-11-03",  "[공지] 전주/완주 지역 택배 파업 종료에 따른 배송 정상화 안내",              "notice",               "안녕하세요.오설록몰입니다.\n 항상 오설록몰을 이용해주시는 고객님께 진심으로 감사드립니다.\n 현재 전주/완주 지역의 CJ대한통운 택배 파업이 종료되어, 배송이 정상화 되었습니다.\n 11/8(월)부터는 해당 지역 우체국 택배로의 전환 없이 정상 발송될 예정입니다.\n (익산 지역의 파업은 아직 진행 중으로, 이전 공지글 참고 부탁 드립니다.)\n 항상 더 나은 가치와 서비스를 제공하는 오설록 온라인몰이 되겠습니다.\n 감사합니다.",     77);
+INSERT INTO board VALUES(7,   "2021-10-01",  "[공지] 택배 배송지연 안내",                                              "notice",               "안녕하세요.\n 차 한잔의 쉼을 전하는 오설록입니다.\n 현재 추석 이후, 급격한 물량 증가와 코로나 19 급격한 증가 여파로 인해\n 일부 배송지연이 발생되고 있습니다.\n 배송완료까지 평소보다 1-2일 추가 소요될 수 있는 점 양해부탁드립니다.\n 고객님께 보다 안전하고 빠른 배송을 위해 노력하겠습니다.\n 오설록 드림",     39);
+INSERT INTO board VALUES(8,   "2021-09-02",  "[점검] 모바일상품권 서비스 일시 중지 안내_9월 7일(화)  오전03시 30분 ~ 07시","check",               "안녕하세요\n 오설록몰을 이용해 주시는 고객님께 감사 드립니다.\n 더욱 안정된 서비스를 제공해드리기 위해 다음의 일정으로 [모바일상품권 네트워크 개선작업]을 진행합니다.\n 해당 시간동안 모바일상품권 이용이 어려운 점 양해 말씀드립니다.\n *작업 내용 : 모바일 상품권 DMZ 네트워크 개선 작업\n *작업 일정 : 2021년 09월 07일 03시 30분 ~ 07시00분까지\n * 작업 영향 : 오설록 모바일상품권 발행, 등록, 조회, 취소, 환불\n 항상 더 나은 가치와 서비스를 제공하는 오설록몰이 되겠습니다.\n 감사합니다.",     93);
+INSERT INTO board VALUES(9,   "2021-08-25",  "[공지] 오설록몰 개인정보처리방침 일부가 변경됩니다.",                      "notice",               "안녕하세요.\n 오설록몰을 이용해 주시는 고객님께 감사 드립니다.\n 아래의 사유로 개인정보처리방침의 일부 내용이 변경될 예정임을 고객님들께 알려드립니다.\n *제 4조(개인정보의 처리위탁) \n - 처리위탁 받는 자 추가: 킨드릴코리아(주), 아이캔매니지먼트(주)\n (사유 : IT 인프라 수탁업체 및 운영사 추가)\n 변경되는 개인정보처리방침은 2021년 9월 1일부터 시행될 예정입니다.\n 항상 더 나은 가치와 서비스를 제공하는 오설록 온라인몰이 되겠습니다.\n 감사합니다.",     69);
+INSERT INTO board VALUES(10,   "2021-06-28",  "[공지] 다다일상 운영 변경안 안내",                                      "notice",               "안녕하세요. 오설록몰입니다\n 다다일상 홈카페의 가격이 기존 23,000원에서 25,000으로 인상하게되어 안내드립니다.\n 기존 구독자분들은 현재 구독 가격 그대로 정기결제됩니다.\n ※단, 6월 25일 이후 구독 해지 시, 인상된 가격 25,000으로 적용됩니다.\n 더불어, 다다일상 베이직 서비스도 런칭되오니,\n 구독 목적에 맞게 선택하여 이용해주시길 바랍니다.\n *변경된 운영안 적용 시점: 2021년 7월 1일부터\n 감사합니다.\n 오설록 드림",     118);
+INSERT INTO board VALUES(11,   "2020-12-22",  "[공지] 시스템점검으로 인한 로그인 오류 안내",                            "notice",               "안녕하세요.\n 오설록 닷컴입니다.\n 현재 로그인 및 회원가입, 뷰티포인트 서비스가 점검 중에 있습니다.\n 최대한 빠른 시간 내에 정상적으로 이용할 수 있도록 하겠습니다.\n 이용에 불편을 드려 죄송합니다.",     79);
+INSERT INTO board VALUES(12,   "2020-07-13",  "[공지] 오설록몰 개인정보처리방침 일부가 변경됩니다.",                    "notice",               "안녕하세요.\n 오설록몰을 이용해 주시는 고객님께 감사 드립니다.\n 아래의 사유로 개인정보처리방침의 일부 내용이 변경될 예정임을 고객님들께 알려드립니다.\n *개인정보 처리 수탁사 현행화\n - 개인정보 처리 수탁자 추가 : 바로고(오설록 티하우스 배달 대행을 위한 개인정보 처리)\n 변경되는 개인정보처리방침은 2020년 7월 20일부터 적용될 예정입니다.\n 항상 더 나은 가치와 서비스를 제공하는 오설록 온라인몰이 되겠습니다.\n 감사합니다.",     72);
+INSERT INTO board VALUES(13,   "2020-03-27",  "[공지] 오설록몰 앱 최신 버전 업데이트 오류 안내",                        "notice",               "안녕하세요.\n 오설록 닷컴입니다.\n 항상 오설록을 사랑해주시는 고객님들께 감사드립니다.\n 현재 오설록몰 앱의 자동 업데이트 시 일부 고객님들께 오류가 발생하고있습니다.\n 기존에 오설록몰 앱을 다운로드받은 고객님들께서는 최초 업데이트 진행 시,\n 번거로우시겠지만 플레이스토어(or앱스토어)에 직접 접속 후 업데이트 부탁드립니다.\n 업데이트 오류로 인해 불편을 드려 죄송합니다.\n 향후 보다 안정되고 편리한 서비스를 제공해드리겠습니다.\n 이용에 불편을 드려 죄송합니다.\n 감사합니다.",     48);
+INSERT INTO board VALUES(14,   "2020-02-19",  "[공지] 구매사은품 지류쿠폰 지급 종료 및 혜택 변경 예정 안내",             "notice",               "안녕하세요.\n 오설록 닷컴입니다.\n 항상 오설록을 사랑해주시는 고객님들께 감사드립니다.\n 구매 고객님들께 지급되었던 지류쿠폰 발급이 종료되고\n 새로운 혜택으로 변경될 예정입니다.\n 구매하실 때 참고 부탁드립니다.\n 시행기간 : 2020년 2월 21일부터\n ※기존 발급된 쿠폰은 기재된 유효기간까지 사용 가능합니다.\n 항상 더 나은 가치와 서비스를 제공하는 오설록 온라인몰이 되겠습니다.\n 감사합니다.",     84);
+INSERT INTO board VALUES(15,   "2019-11-08",  "[공지] 일부제품 일시품절 안내",                                         "notice",               "안녕하세요.\n 오설록 닷컴입니다.\n 항상 오설록을 사랑해주시는 고객님들께 감사드립니다.\n 제품 패키지 리뉴얼로 인해, 일부 제품이 일시품절 상태가 지속되고 있습니다.\n 이용에 불편드려 대단히 죄송합니다.\n 일시품절 제품은 최대한 빠르게 입고시키겠습니다.\n (일부제품은 단종예정으로 표기 정정하겠습니다.)\n 항상 더 나은 가치와 서비스를 제공하는 오설록 온라인몰이 되겠습니다,\n 감사합니다.",     81);
+INSERT INTO board VALUES(16,   "2019-10-01",  "[점검] 오설록닷컴 서비스 일시 중지 안내_10월 1일(화) 00시~ 09시",        "check",               "안녕하세요.\n 오설록 닷컴입니다.\n 항상 오설록을 사랑해주시는 고객님들께 감사드립니다.\n 더 나은 이용 환경을 제공하기 위한 시스템 점검을 진행합니다.\n 따라서 아래 기간동안에는 온라인몰 이용이 제한되니, 고객님들의 양해 부탁드립니다.\n *작업일시 : 10/1(화) 00:00 ~ 09:00 (약 9시간 예정)\n 항상 더 나은 가치와 서비스를 제공하는 오설록 온라인몰이 되겠습니다.\n 감사합니다.",     92);
+INSERT INTO board VALUES(17,   "2018-12-27",  "[공지] 일부 제품 가격 인상 안내",                                       "notice",               "안녕하세요. 오설록 닷컴입니다.\n 원, 부재료 단가 인상으로 부득이하게 '프리미엄 티컬렉션'의 가격이 22,000원에서 25,000원으로 인상하게되었음을 안내 드립니다.\n '지함'가격 또한 최소 500원에서 최대 2,000원까지 가격이 인상됩니다.\n *인상 가격 적용 시점 : 2019년 1월2일(수)부터\n 오설록을 아껴주시는 고객분들의 많은 양해 부탁드립니다.\n 감사합니다.",     67);
+INSERT INTO board VALUES(18,   "2017-05-02",  "[이벤트] 4월 출석체크 이벤트 안내",                                     "event",               "안녕하세요. 오설록 닷컴입니다.\n 지난 4월 오픈되었던 '4월 출석체크' 이벤트 진행 과정에서 서버 오류가 발생하여, 일시적으로 불안정한 서비스를 제공해드리고 있습니다.\n '4월 출석체크' 이벤트 ▶http://www.osulloc.com/kr/ko/life/event/view/1721\n 이벤트에 참여하신 모든 고객님께 진심으로 사과 말씀드립니다.\n 4월 출석내역 확인 및 쿠폰 다운이 가능하도록 빠른시일내로 시스템 보완 예정입니다.\n 사이트 이용에 불편을 드려 죄송합니다.\n 감사합니다.",     87);
+INSERT INTO board VALUES(19,   "2017-05-02",  "[공지] 오설록 닷컴 결제관련 기능개선",                                   "notice",               "안녕하세요. 오설록 닷컴입니다.\n 그동안 사이트 이용에 불편 드렸던, 웹(크롬, 사파리 등)에서의 이니시스 호환 문제가 개선되었습니다.\n 앞으로도 보다 나은 서비스를 제공하기 위해 노력하겠습니다.\n 많은 관심과 응원 부탁드립니다.\n 감사합니다.", 57);
+INSERT INTO board VALUES(20,   "2016-09-06",  "[공지] 추석 배송 안내",                                                 "notice",               "안녕하세요. 오설록 닷컴입니다.\n *배송마감: 9월 11일(일) 자정 주문 건까지\n 9월 12일(월) 순차적으로 배송 예정\n -9월 12일(월)00시 이후 주문건은 9월 19일(월) 이후에 순차적으로 배송 될 예정입니다. (재고여부에 따라 배송 지연 될 수 있습니다.)",    48);
+SELECT * FROM board;
+SELECT COUNT(*) FROM board;
+SELECT * FROM board ORDER BY board_num DESC LIMIT 0, 5 ;
+UPDATE board SET boardReadCount = boardReadCount + 1 WHERE boardNo = 3;
+
+
+# 장바구니 테이블
+CREATE TABLE cart(
+	cart_num INT,
+    cart_userId VARCHAR(20),
+    cart_itemName VARCHAR(100),
+    cart_BuyCount INT,
+    cart_itemImage VARCHAR(20),
+    cart_buyitemPrice INT,
+    cart_discount INT
+);
+INSERT INTO cart VALUES(1, "minsj", "러블리 티 박스", 1, "러블리_티 _박스.png", 20000, 20);
+SELECT * FROM cart;
+DELETE FROM cart WHERE cart_num = 2;
+SELECT MAX(cart_num) FROM cart;
+SELECT SUM(cart_BuyCount * cart_buyitemPrice) FROM cart WHERE cart_userId = 'minsj';
+
+
+# 주문내역 테이블
+CREATE TABLE orderItem(
+	order_num INT,
+    order_userId VARCHAR(20),
+    order_itemName VARCHAR(50),
+    order_BuyCount INT,
+    order_itemImage VARCHAR(20),
+    order_buyitemPrice INT
+);
+SELECT * FROM orderItem;
+
+
+	

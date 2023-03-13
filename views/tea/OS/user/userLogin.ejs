@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오설록 로그인</title>
+    <link rel="stylesheet" href="css/login.css" />
+</head>
+<body>
+        <!--header-->
+        <header class="header">
+            <div class="headerBox" align="center">
+                <div class="inner">
+                    <h2>로그인</h2>
+                    <button
+                        type="button"
+                        class="page_close_btn"
+                        onclick="location.href='/'"
+                    >
+                        <img style="width:20px;height:auto" src="btn_title_close.png" alt="닫기" />
+                    </button>
+
+                </div>
+            </div>
+            <hr color="lightgrey" size="0.5px" />
+        </header>
+        <!--header 끝 -->
+ 
+                <!--center-->
+                <section class="container">
+                    <div class="login_guide_text" align="center">
+                        <span>
+                            <h1>
+                                아모레퍼시픽 뷰티포인트 통합회원
+                                <br />
+                                아이디로 로그인해주세요.
+                            </h1>
+                        </span>
+                    </div>
+                    <br />
+
+                    <div align="center">
+                        <form action="userLoginPro">
+                            <table width="520px" height="50px">
+                                <tr>
+                                    <td>
+                                        <input
+                                            type="text"
+                                            placeholder="아이디 입력"
+                                            name="user_id"
+                                            required
+                                        />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input
+                                            type="password"
+                                            name="user_pw"
+                                            placeholder="비밀번호 입력 (영문, 숫자, 특수문자 조합)"
+                                            required
+                                        />
+                                    </td>
+                                </tr>
+        
+                                <tr>
+                                    <td>
+                                        <!--
+                                        <input
+                                            type="checkbox"
+                                            id="id_save"
+                                            checked
+                                            title="아이디 저장"
+                                        />
+                                        <label for="id_save">
+                                             <span class="checkbox_lable"
+                                                >아이디 저장</span
+                                            >-->
+                                            
+                                        <!-- </label> -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <button
+                                            class="btnA btn_blue loginbtn"
+                                            type="submit"
+                                        >
+                                            로그인
+                                        </button>
+                                    </td>
+                                </tr>
+                            </table>
+                            <hr />
+                        </form>
+                    </div>
+                </section>
+                <!--footer--> 
+
+</div>
+</body>
+</html>

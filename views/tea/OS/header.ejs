@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오설록t</title>
+
+
+
+<style>
+.osul-wrap {
+    width: 100%;
+    margin: 5px auto;
+    position: relative;
+}
+
+.osul-wrap img {
+    width: 100%;
+    vertical-align: middle;
+    margin-bottom: 40px
+}
+
+.osul-text {
+    padding: 5px;
+    text-align: left;
+    position: absolute;
+    top: 10%;
+    left: 10%;
+}
+
+.jeju-wrap {
+    width: 100%;
+    margin: 5px auto;
+    position: relative;
+}
+
+.jeju-wrap img {
+    width: 100%;
+    vertical-align: middle;
+    margin-bottom: 40px
+}
+
+.jeju-text {
+    padding: 5px;
+    text-align: center;
+    position: absolute;
+    top: 15%;
+    left: 42%;
+    color: white;
+}
+.jejudo-text{
+    padding: 5px;
+    text-align: center;
+    position: absolute;
+    top: 80%;
+    left: 35%;
+    color: white;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+#noti {
+    background-color: rgb(172, 171, 171);
+    width: 70%;
+}
+
+h2 {
+    text-decoration: line-through;
+    font-size: smaller;
+}
+
+.dif_h2{
+    text-decoration:none;
+}
+
+.green {
+    color: rgb(72, 163, 72)
+}
+
+#line {
+    background-color: white;
+    width: 100%
+}
+
+#today {
+    background-color: rgb(219, 219, 219);
+    width: 100%
+}
+#line {
+    background-color: rgb(82, 62, 62);
+    width: 100%;
+}
+@import url(//fonts.googleapis.com/earlyaccess/hanna.css);
+    .dif_td{font-family: 'Hanna', sans-serif;}
+
+</style>
+
+</head>
+
+
+<body>
+<div class="top" align="right" style="padding:0px 0px 0px 180px;">
+    
+    
+    <!-- 로그아웃 상태-->
+    <% if(log == null) { %>
+    <table class="dif_td" style="width:100%">
+        <tr>
+            <td width="5%" align="left">
+                <a href="mainItem">
+                    <img alt="메인로고" src="검정 오설록 로고.png" height="40px"> &nbsp;
+                </a>
+            </td>
+                <td width="30%" align="left">
+                    <table class="dif_td">
+                        <tr class="dif_td">
+                            <td class="dif_td" width="7%" align="left" style="padding:0px 0px 0px 50px;">
+                                <font size="4" color="black">
+                                    <a href="itemAllList"><b>제품</b></a>
+                                </font>
+                            </td>
+                            <td width="7%" align="left" style="padding:0px 0px 0px 0px;">
+                                <font size="4" color="black">
+                                    <a href="#"><b>선물추천</b></a>
+                                </font>
+                            </td>
+                            <td width="7%" align="left" style="padding:0px 0px 0px 0px;">
+                                <font size="4" color="black">
+                                    <a href="#"><b>다다일상</b></a>
+                                </font>
+                            </td>
+                            <td width="7%" align="left" style="padding:0px 0px 0px 0px;">
+                                <font size="4" color="black">
+                                    <a href="#"><b>브랜드</b></a>
+                                </font>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            <form action="itemSearch">
+            <td align="right" style="padding:0px 0px 0px 400px;" width="50px">
+                <input type="text" name="search">
+            </td>
+            <td>
+                <input type="image" src="상단_검색.png" id="login" style="width: 50px;" align="right"> &nbsp;
+            </td>
+            </form>
+            <td align="right">
+                <a href="cartInfo"><input type="image" src="상단_장바구니.png" id="login" style="width: 50px;" align="right"></a> &nbsp;
+            </td>
+            <form action="boardList">
+            <td  align="right">
+                <a href="#"><input type="image" src="상단_더보기.png" id="login" style="width: 50px;" align="right"></a> &nbsp;
+            </td>
+            </form>
+           
+            <td  align="right">
+                <a href="userJoin">회원가입</a> &nbsp;
+              </td>
+            <td  align="right">
+                <a href="userLogin">로그인</a>&nbsp;
+            </td>
+            <td  align="right" style="padding:0px 100px 0px 0px;">
+                <a>Korean</a>&nbsp;
+            </td>
+        </tr>
+    </table>
+    <!-- 로그인 상태-->
+    <% } else { %>
+        <table class="dif_td" style="width:100%">
+                <tr>
+                    <td width="5%" align="left">
+                        <a href="mainItem">
+                            <img alt="메인로고" src="검정 오설록 로고.png" height="40px"> &nbsp;
+                        </a>
+                    </td>
+                        <td width="30%" align="left">
+                            <table>
+                                <tr>
+                                    <td width="7%" align="left" style="padding:0px 0px 0px 50px;">
+                                        <font size="4" color="black">
+                                            <a href="itemAllList"><b>제품</b></a>
+                                        </font>
+                                    </td>
+                                    <td width="7%" align="left" style="padding:0px 0px 0px 0px;">
+                                        <font size="4" color="black">
+                                            <a href="#"><b>선물추천</b></a>
+                                        </font>
+                                    </td>
+                                    <td width="7%" align="left" style="padding:0px 0px 0px 0px;">
+                                        <font size="4" color="black">
+                                            <a href="#"><b>다다일상</b></a>
+                                        </font>
+                                    </td>
+                                    <td width="7%" align="left" style="padding:0px 0px 0px 0px;">
+                                        <font size="4" color="black">
+                                            <a href="#"><b>브랜드</b></a>
+                                        </font>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    <form action="itemSearch">
+                    <td align="right" style="padding:0px 0px 0px 400px;" width="50px">
+                        <input type="text" name="search">
+                    </td>
+                    <td>
+                        <input type="image" src="상단_검색.png" id="login" style="width: 50px;" align="right"></a> &nbsp;
+                    </td>
+                    </form>
+                    <td align="right">
+                        <a href="cartInfo"><input type="image" src="상단_장바구니.png" id="login" style="width: 50px;" align="right"></a> &nbsp;
+                    </td>
+                    <form action="boardList">
+                    <td  align="right">
+                        <a href="#"><input type="image" src="상단_더보기.png" id="login" style="width: 50px;" align="right"></a> &nbsp;
+                    </td>
+                    </form>
+                    <td  align="right">
+                    <a href="orderItem">
+                        마이페이지
+                    </a> &nbsp;
+                    <td  align="right">
+                        <a href="userLogout">로그아웃</a>&nbsp;
+                    </td>
+                    <td  align="right">
+                        <a href="userDelete">
+                            회원탈퇴
+                        </a> &nbsp;
+                    </td>
+                    <td  align="right" style="padding:0px 50px 0px 0px;">
+                        <a>Korean</a>&nbsp;
+                    </td>
+                </tr>
+            </table>
+       <% } %>
+
+</div>
+
+</body>
+</html>

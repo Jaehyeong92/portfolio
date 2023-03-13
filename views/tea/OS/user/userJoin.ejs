@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+    <link rel="stylesheet" href="css/signin.css" />
+</head>
+<body>
+        <!--header-->
+        <header class="header">
+            <div class="headerBox" align="center">
+                <div class="inner">
+                    <h2>회원가입</h2>
+                    <button
+                        type="button"
+                        class="page_close_btn"
+                        onclick="location.href='/'"
+                    >
+                        <img style="width:20px;height:auto" src="btn_title_close.png" alt="닫기" />
+                    </button>
+
+                </div>
+            </div>
+            <hr color="lightgrey" size="0.5px" />
+        </header>
+        <!--header 끝 -->
+ 
+                <!--center-->
+                <section class="container">
+                    <div class="page_top_area" align="center">
+                        <span>
+                            <h3>뷰티포인트 회원가입</h3>
+                            <p>뷰티포인트 통합 아이디로 아모레퍼시픽 모든 브랜드의 온/오프 매장 서비스</p>
+                        </span>
+                    </div>
+                    <br />
+
+                    <div align="center">
+                        <form action="userJoinPro">
+                            <table width="520px" height="50px">
+                                <tr>
+                                    <td>
+                                        <input
+                                            type="text"
+                                            placeholder="아이디 입력"
+                                            name="user_id"
+                                            required
+                                        />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input
+                                            type="password"
+                                            name="user_pw"
+                                            placeholder="비밀번호 입력 (영문, 숫자, 특수문자 조합)"
+                                            required
+                                        />
+                                    </td>
+                                </tr>
+        
+                                <tr>
+                                    <td>
+                                        <input
+                                            type="text"
+                                            name="user_name"
+                                            placeholder="이름을 입력해주세요"
+                                            required
+                                        />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input
+                                            type="text"
+                                            name="user_email"
+                                            placeholder="이메일을 입력해주세요"
+                                            required
+                                        />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input
+                                            type="text"
+                                            name="user_bDate"
+                                            placeholder="생년월일을 입력해주세요. 예시: 1991-02-03"
+                                            required
+                                        />
+                                    </td>
+                                </tr>
+        
+                                <tr>
+                                    <td>
+                                        <input
+                                            type="checkbox"
+                                            id="id_save"
+                                            checked
+                                            title="아이디 저장"
+                                        />
+                                        <label for="id_save">
+                                            <span class="checkbox_lable"
+                                                >아이디 저장</span
+                                            >
+                                        </label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <button
+                                            class="btnA btn_blue loginbtn"
+                                            type="submit"
+                                        >
+                                            회원가입
+                                        </button>
+                                    </td>
+                                </tr>
+                            </table>
+                            <hr />
+                        </form>
+                    </div>
+                </section>
+                <!--footer--> 
+
+</div>
+</body>
+</html>

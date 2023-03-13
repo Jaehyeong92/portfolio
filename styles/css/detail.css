@@ -1,0 +1,110 @@
+
+body, input, textarea, select, button{
+    font-family: 'ad', "Noto Sans KR", "Malgun Gothic", "맑은 고딕", "Nanum Gothic", "나눔 고딕", "돋움", dotum, sans-serif;
+}
+
+html, body, table{
+    font-family: "Noto Sans KR", "본고딕", "Noto Sans", "Roboto", "맑은 고딕", "Malgun Gothic", "애플 SD 산돌고딕 Neo", "Apple SD Gothic Neo", Ngothic, sans-serif;
+} 
+.detail_right{
+    align-items: right;
+}
+.reviews{
+    display:inline-flex;
+}
+h2 .review{
+    font-size: 15px;
+}
+
+.item-info{
+    display:flex;
+    justify-content: space-evenly;
+    align-items:stretch;
+    padding:0
+}
+select option[value=""][disabled] {
+	display: none;
+}
+.detail-option, .detail-img{
+    margin:auto;
+    background: #f8f9fb;
+    padding: 30px 43px 110px;
+}
+.quantity-input{
+    border:0 solid black;
+    width:30px;
+    text-align:center
+}
+.text{
+    font-size:20px
+}
+
+.select_quantity, .selected-merchant{
+    background-color:#f8f9fb;
+    padding:10px;
+}
+
+.img-box{
+    width:42px;
+    height:42px;
+}
+table{
+    border-collapse: collapse;
+    border:1px;
+    border-color:grey;
+}
+#info-text{
+    font-size:25px
+}
+h1{
+    font-size:40px
+}
+a{
+    text-decoration:none;
+    text-decoration-line:none;
+    color:rgb(175, 175, 175);
+
+}
+.ori-price{
+    text-decoration:line-through;
+    color:grey;
+}
+.dis-price{
+    font-size:20px;
+    font-weight: bold;
+}
+.dis-perc{
+    color:red;
+    font-size :20px;
+    width:40px;
+}
+.select-box{
+    font-size:35px;
+}
+.detail-img{
+    width:auto;
+    height:auto;
+    padding:0;
+    margin:0;
+}
+.item-img{
+    width:610px;
+    height:610px;
+}
+.detail-option{
+    padding:0;
+    margin:2;
+}
+.align-r{
+    text-align: right;
+}
+.review-text{
+font-size: 20px;
+color:rgb(135, 135, 135);
+
+}
+
+
+@import url(//fonts.googleapis.com/earlyaccess/hanna.css);
+.dif_td{font-family: 'Hanna', sans-serif;}
+

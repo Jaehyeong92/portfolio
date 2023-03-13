@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오설록</title>
+
+    <style>
+                    
+        @import url(//fonts.googleapis.com/earlyaccess/hanna.css);
+        .dif_td{font-family: 'Hanna', sans-serif;}
+
+    </style>
+    
+</head>
+<body>
+    <%- include("../header.ejs") %>
+    <div align="center">
+        <br><br>
+        <h3 class="dif_h2">주문 내역 확인</h3>
+        <hr width="300px">
+        <br><br>
+
+        <% if(count == 0) { %>
+            <h4>주문 내역이 비었습니다.</h4>
+        <% } else { %>
+
+        <table>
+            <tr height="50">
+                <td width="50" align="center">
+                    <font size="3">번호</font>
+                </td>
+                <td width="50" align="center">
+                    <font size="3">이미지</font>
+                </td>
+                <td width="100" align="center">
+                    <font size="3">상품명</font>
+                </td>
+                <td width="50" align="center">
+                    <font size="3">수량</font>
+                </td>
+                <td width="100" align="center">
+                    <font size="3">가격</font>
+                </td>
+            </tr>
+            
+            <tr height="10">
+                <td colspan="7">
+                    <hr size="2" color="gray" width="800">
+                </td>
+            </tr>
+            
+            <%
+                var index = 0;
+                for(var i = 0; i <orderList.length; i++){
+                    var order = orderList[i];
+                        index += 1;
+            %>
+            <tr height="50">
+                <td width="50" align="center">
+                    <font size="2"><%= index %></font>
+                </td>
+                <td width="50" align="center">
+                    <img src="<%= order['order_itemImage'] %>" height="50" style="border: 1px solid black;">
+                </td>
+                <td width="100" align="center">
+                    <font size="2"><%= order['order_itemName'] %></font>
+                </td>
+                <td width="50" align="center">
+                    <font size="2"><%= order['order_BuyCount'] %></font>
+                </td>
+                <td width="100" align="center">
+                    <font size="2" ><%= order['order_BuyCount'] * order['order_buyitemPrice'] %></font>
+                </td>
+            </tr>
+            <%
+            }
+            %>
+        </table>
+        <% } %>
+        <br><br><br><br><br><br>
+
+    </div>
+    <%- include("../footer.ejs") %>
+</div>
+</body>
+</html>

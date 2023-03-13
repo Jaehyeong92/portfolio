@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오설록</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+</head>
+<style>
+                    
+	@import url("//fonts.googleapis.com/earlyaccess/hanna.css");
+	.dif_td{font-family: 'Hanna', sans-serif;}
+
+</style>
+<body>
+    <%- include("../header.ejs") %>
+    <div style="padding:50px 700px 10px 300px;">
+        <td>
+			<font size="5" style="padding:0px 0px 0px 35px;"><strong>장바구니</strong></font>
+    	</td>
+		<br>
+
+		
+		<form action="delselect">
+		<table>
+			<tr>
+				<td align="left" style="padding:40px">
+					<table style="width:800px;">
+						<tr> 
+							<td align="left"> 
+							<input type="checkbox" bold="5" class="check_all">전체선택
+						</td>
+						<td align="right"><button onclick="location.href='delselect'">선택삭제</button></td>
+						</tr>
+					</table>
+					
+					
+					
+						<%  
+						var count = 0;
+						var totalDiscountPrice = 0;
+
+						for(var i=0; i<cartList.length; i++) { 
+							var cart = cartList[i];
+							totalDiscountPrice += cart['cart_buyitemPrice'] * (cart['cart_discount'] / 100) * cart['cart_BuyCount'];
+								count += 1;
+						%>
+
+							<hr width="800" color="black" size="1" />
+							<table>
+								<tr>
+									<td>
+										<input type="checkbox" name="itemCheck" value="<%=cart.cart_num%>">
+									</td>
+									<td width="200" height="100" align="center">
+										<img src="<%= cart['cart_itemImage'] %>" width="70">
+									</td>
+									<td width="350" height="100">
+										<font size="2"><b><%= cart['cart_itemName'] %></b></font><br>
+										<font size="2"><b>포장불가</b></font><br>
+										<font size="1" style="color:gray"><b>선물 가능한 상품입니다.</b></font>
+									</td>
+									<td width="600" align="center">
+										<font size="3"><b><%= cart['cart_BuyCount'] %></b></font>
+									</td>
+									<td width="250">
+										<p>
+											<font size="3" color="black" bold="3">
+												<%= cart['cart_buyitemPrice'] * (100 - cart['cart_discount']) / 100 * cart['cart_BuyCount'] %>원
+											</font>
+										</p>
+									</td>
+									<td width="200" align="right">
+										<a href="deleteCart?cart_num=<%= cart['cart_num'] %>">
+											삭제
+										</a>
+							
+									</td>
+								</tr>
+							</table>
+						<% } %>
+				
+					 
+				<hr width="800" color="black" size="1">
+
+				<%if(count == 0) {%>
+					
+						<font size="3" style="padding:50px 0px 50px 275px" align="center"><b>장바구니에 담긴 상품이 없습니다.</b></font>
+						<hr width="800" color="black" size="1" />
+					
+						
+						<td style="padding:40px;border:2px solid darkgreen;" align="right">
+						
+						<table width="240">
+							<tr>
+								<td align="left" width="150" style="padding:0px 0px 10px 0px;border-bottom:1px solid #DDD; color:rgb(14, 71, 14)">
+									<font size="2">상품금액</font>
+								</td>
+								<td align="right" width="150" style="padding:0px 0px 10px 0px;border-bottom:1px solid #DDD">
+									<font size="2">+0원</font>
+								</td>
+							</tr>
+							<tr>
+								<td align="left" width="150" style="padding:10px 0px 10px 0px;border-bottom:1px solid #DDD; color:rgb(14, 71, 14)">
+									<font size="2">상품할인</font>
+								</td>
+
+								<td align="right" width="150" style="padding:10px 0px 10px 0px;border-bottom:1px solid #DDD; color:rgb(221, 99, 51)">
+									
+									<font size="2">-0원</font>
+								</td>
+							</tr> 
+							<tr>
+								<td align="left" width="150" style="padding:10px 0px 10px 0px;border-bottom:1px solid #DDD; color:rgb(14, 71, 14)">
+									<font size="2">포장비</font>
+								</td>
+								<td align="right" width="150" style="padding:10px 0px 10px 0px;border-bottom:1px solid #DDD">
+									<font size="2">+0원</font>
+								</td>
+							</tr>
+							<tr>
+								<td align="left" style="padding:10px 0px 10px 0px;border-bottom:1px solid #DDD; color:rgb(14, 71, 14)" >
+									<font size="2">부가쇼핑백</font>
+								</td>
+								<td align="right" style="padding:10px 0px 10px 0px;border-bottom:1px solid #DDD">
+									<font size="2">+0원</font>
+								</td>
+							</tr>
+							<tr>
+								<td align="left" style="padding:10px 0px 10px 0px;border-bottom:1px solid #DDD; color:rgb(14, 71, 14)">
+									<font size="2">배송비</font>
+								</td>
+								<td align="right" style="padding:10px 0px 10px 0px;border-bottom:1px solid #DDD">
+									<font size="2">+0원</font>
+								</td>
+							</tr>
+							<tr>
+								<td align="left" style="padding:20px 0px 20px 0px;border-bottom:1px solid #DDD">
+									<font size="3">결제예상금액</font>
+								</td>
+								<td align="right" style="padding:20px 0px 20px 0px;border-bottom:1px solid #DDD; color:rgb(32, 121, 32) ">
+									<font size="4">0</font><font size="2">원</font>
+								</td>
+							</tr>
+						</table>
+						<!-- 주문버튼 -->
+						<table>
+							<tr>
+								<td align="center">
+									<button  style="background-color:darkgreen;font-size:18px; padding:10px 30px 10px 30px;"><a href="#" style=" color: white;">0원 주문하기</a></button>
+								</td>
+							</tr>
+						</table>
+					</td>
+
+		<div style="padding:0px 350px 0px 600px;">
+			<table align="center">
+            <tr>
+                <td height="30">
+				   <button style="background-color:white"><a href="#"><font size="4">&nbsp선택상품 주문&nbsp</font></a></button>
+				</td>
+                <td height="50">
+				   <button style="background-color:green; color:white"><a href="#" style=" color: white;"><font size="4">&nbsp전체상품 주문하기&nbsp</font></a></button>
+                </td>
+            </tr>
+			<tr>
+			</tr>
+			<tr>
+				<td align="center" colspan="2"> 
+				<img src="느낌표.png"><font size="2" style="color:gray">장바구니에 보관된 상품은 3개월 후에 삭제 됩니다.</font>
+			    </td>
+			</tr>
+			</table>
+			<tr>
+				&nbsp
+			</tr>
+		</div>
+				
+				
+				<%} else {%>
+					
+					<td style="padding:40px;border:2px solid darkgreen;" align="right">
+					<table width="240">
+						<tr>
+							<td align="left" width="150" style="padding:0px 0px 10px 0px;border-bottom:1px solid #DDD; color:rgb(14, 71, 14)">
+								<font size="2">상품금액</font>
+							</td>
+							<td align="right" width="150" style="padding:0px 0px 10px 0px;border-bottom:1px solid #DDD">
+								<font size="2">+<%= total %>원</font>
+							</td>
+						</tr>
+						<tr>
+							<td align="left" width="150" style="padding:10px 0px 10px 0px;border-bottom:1px solid #DDD; color:rgb(14, 71, 14)">
+								<font size="2">상품할인</font>
+							</td>
+
+							<td align="right" width="150" style="padding:10px 0px 10px 0px;border-bottom:1px solid #DDD; color:rgb(221, 99, 51)">
+								
+								<font size="2">-<%= totalDiscountPrice %>원</font>
+							</td>
+						</tr> 
+						<tr>
+							<td align="left" width="150" style="padding:10px 0px 10px 0px;border-bottom:1px solid #DDD; color:rgb(14, 71, 14)">
+								<font size="2">포장비</font>
+							</td>
+							<td align="right" width="150" style="padding:10px 0px 10px 0px;border-bottom:1px solid #DDD">
+								<font size="2">+0원</font>
+							</td>
+						</tr>
+						<tr>
+							<td align="left" style="padding:10px 0px 10px 0px;border-bottom:1px solid #DDD; color:rgb(14, 71, 14)" >
+								<font size="2">부가쇼핑백</font>
+							</td>
+							<td align="right" style="padding:10px 0px 10px 0px;border-bottom:1px solid #DDD">
+								<font size="2">+0원</font>
+							</td>
+						</tr>
+						<tr>
+							<td align="left" style="padding:10px 0px 10px 0px;border-bottom:1px solid #DDD; color:rgb(14, 71, 14)">
+								<font size="2">배송비</font>
+							</td>
+							<td align="right" style="padding:10px 0px 10px 0px;border-bottom:1px solid #DDD">
+								<%
+									var deliveryPrice = 2500;
+									if(total >= 30000 || count == 0) {
+										deliveryPrice = 0;
+								%>
+									<font size="2">+<%= deliveryPrice %>원</font>
+								<% } else { %>
+									<font size="2">+<%= deliveryPrice %>원</font>
+									
+								<% } %>
+							</td>
+						</tr>
+						<tr>
+							<td align="left" style="padding:20px 0px 20px 0px;border-bottom:1px solid #DDD">
+								<font size="3">결제예상금액</font>
+							</td>
+							<td align="right" style="padding:20px 0px 20px 0px;border-bottom:1px solid #DDD; color:rgb(32, 121, 32) ">
+								<font size="4"><%= total + deliveryPrice - totalDiscountPrice %></font><font size="2">원</font>
+							</td>
+						</tr>
+					</table>
+					<!-- 주문버튼 -->
+					<table>
+						<tr>
+							<td align="center">
+								<button  style="background-color:darkgreen;font-size:18px; padding:10px 30px 10px 30px;"><a href="pay?cart_num=<%= cart['cart_num'] %>" style=" color: white;"><%=total + deliveryPrice - totalDiscountPrice%>원 주문하기</a></button>
+							</td>
+						</tr>
+					</table>
+					</td>
+			  </tr>
+		</table>
+	</form> 
+
+	
+
+
+
+	</div>
+			
+			<div style="padding:0px 350px 0px 600px;">
+			<table>
+            <tr>
+                <td height="30">
+				   <button style="background-color:white"><a href="#"><font size="4">&nbsp선택상품 주문&nbsp</font></a></button>
+				</td>
+                <td height="50">
+				   <button style="background-color:green; color:white"><a href="#" style=" color: white;"><font size="4">&nbsp전체상품 주문하기&nbsp</font></a></button>
+                </td>
+            </tr>
+			<tr>
+			</tr>
+			<tr>
+				<td align="center" colspan="2"> 
+				<img src="느낌표.png"><font size="2" style="color:gray">장바구니에 보관된 상품은 3개월 후에 삭제 됩니다.</font>
+			    </td>
+			</tr>
+			</table>
+			<tr>
+				&nbsp
+			</tr>
+		</div>
+	
+		<%}%>
+	
+		<div style="padding:50px 700px 100px 300px;">
+	<table>
+		<tr>
+			<td>
+				<h3 width="100">오늘만 이 가격</h3>
+			</td>
+			<td>
+				&nbsp&nbsp
+			</td>
+			<td> 
+				<font size="2" width="100">오늘 하루만 이 가격으로 구매할 수 있는 상품을 지금 바로 만나보세요.</font>
+			</td>
+			<td align="right" width="300">
+				<h1>07:24:43</h1>
+			</td>
+		</tr>
+			
+	</table>
+
+	<hr width="1000" color="black" size="1">
+
+	<table>
+		<tr>
+			<td rowspan="2">
+				<img src="오늘만이가격.png" width="300">
+			</td>
+			<td width="500" align="left" style="padding:20px 20px 20px 50px;">
+				<h4>그린티 & 얼그레이 웨하스 세트</h4>
+				<p><font size="2" style="text-decoration: line-through;" style="padding:50px 50px 0px 100px; color:gray"><b>22,000원</b></font></p>
+				<p><font size="5" color="black" style="padding:0px 50px 0px 0px; color:red">15,400원</font></p>
+			</td>
+		</tr>
+		</table>	
+	<hr width="1000" style="color:gray" size="1" >
+	</div>
+
+    <%- include("../footer.ejs") %>
+	<script>
+
+		$('.check_all').click(function() {
+			const checked = $(this).is(':checked');
+
+			if (checked) {
+				$('input[name="itemCheck"]').prop('checked', true);
+			} else {
+				$('input[name="itemCheck"]').prop('checked', false);
+			}
+		})
+	</script>
+</div>
+</body>
+</html>
